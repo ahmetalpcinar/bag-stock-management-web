@@ -1,33 +1,38 @@
-## ❗ Bilgi
-Bu proje, HTML & CSS & JS dilleri kullanılarak yazılmış ve Node.js sayesinde hostlanan çanta firmasına ait stok işleme ve ürün takip sistemi için Web Sitesi denemesidir. Siteye bağlı herhangi bir Database bulunmamaktadır. Eklenen ürünler JSON dosyasında saklanmaktadır.
+# Bag Stock Management (Web)
 
-## 🖥️ İçindekiler
-- Ana Sayfa
-- Giriş Sayfası (Sadece yetkililer için)
-- Ürünleri Görüntüleme Sayfası (Her ürün Kategorisi için 1 tane.)
-- Ürün & Stok Kontrol Sayfası (Ürün Sil, Ekle, Güncelle ve Stok Yönetimi)
+Bir çanta firması için geliştirilmiş ürün ve stok takip web uygulaması. Ürünler kategori sayfalarında listelenir; yetkili kullanıcı ürün ekleyebilir, güncelleyebilir, silebilir ve stok miktarını yönetebilir. Veritabanı yoktur, ürünler `web/products.json` dosyasında saklanır.
 
-## 🔌 Çalışma Mantığı
-Bu siteyi çalıştırmak için Node.js kullanılmaktadır. Visual Studio Code uygulamasında projemizi açtıktan sonra bir terminal oluşturmalı ve terminale `node server.js` yazılmalıdır. Bu sayede sitemiz Local olarak hostlanı. Terminal de size döndürülen site URL'si ile siteye ulaşabilirsiniz!
+## Teknolojiler
 
-<img src="https://github.com/ahmetalpcinar/ahmetalpcinar/blob/main/PNG/Images/imageBSIW4.png">
+- HTML, CSS, JavaScript
+- Node.js, Express
+- Multer (ürün görseli yükleme)
+- JSON dosyası ile veri saklama
 
-## 📥 Giriş Sayfası
-Giriş sayfası, site yetkililerinin giriş için kullanıcı adı ve şifre yazdığı sayfadır. Sadece yetkili olarak giriş yapmak mevcuttur.
+## Özellikler
 
-```js
-const user = { username: "admin", password: "12345678" };
+- Ana sayfa ve kategori sayfaları: kadın çantaları, erkek çantaları, el çantaları, bel çantaları, cüzdanlar
+- Yönetici paneli: ürün ekleme, güncelleme, silme, stok güncelleme
+- REST API: `GET/POST /api/products`, `PUT /api/products/:id`, `PUT /api/products/:id/stock`, `DELETE /api/products/:id`
+
+## Kurulum
+
+Gereksinim: Node.js 18 veya üzeri.
+
+```bash
+git clone https://github.com/ahmetalpcinar/bag-stock-management-web.git
+cd bag-stock-management-web
+npm install
+npm start
 ```
 
-<img src="https://github.com/ahmetalpcinar/ahmetalpcinar/blob/main/PNG/Images/imageBSIW2.png">
+Uygulama `http://localhost:3000/html/index.html` adresinde açılır.
 
-## 🏠 Ana Sayfa
-Ana sayfa, diğer sayfalar arasında gezinmeyi sağlayan ana menü sayfasıdır. Bu sayfadan ürünleri takip etmek için ürün sayfaları arasında gezinilebilir.
+## Not
 
-<img src="https://github.com/ahmetalpcinar/ahmetalpcinar/blob/main/PNG/Images/imageBSIW1.png">
+Yönetici girişi öğrenme amaçlı, istemci tarafında basit bir kontrolle yapılmaktadır (kullanıcı adı `admin`, şifre `12345678`). Gerçek bir ortamda kullanılmamalıdır; kimlik doğrulama sunucu tarafında yapılmalıdır.
 
-## 👜 Ürün & Stok Kontrol Sayfası
-Ürün ve stok kontrol sayfası, ürünleri eklediğimiz, sildiğimiz, güncellediğimiz ve stokları yönettiğimiz sayfalardır. Ana sayfa da bulunan "Giriş" düğmesinin yönlendirdiği Login Sayfasından sonra yetkili olarak giriş yapılır ve bu sayfalara ulaşılır.
+## Ekran Görüntüleri
 
-
-<img src="https://github.com/ahmetalpcinar/ahmetalpcinar/blob/main/PNG/Images/imageBSIW3.png">
+<img src="https://raw.githubusercontent.com/ahmetalpcinar/ahmetalpcinar/main/PNG/Images/imageBSIW1.png" alt="Ana sayfa" width="420"> <img src="https://raw.githubusercontent.com/ahmetalpcinar/ahmetalpcinar/main/PNG/Images/imageBSIW2.png" alt="Giriş sayfası" width="420">
+<img src="https://raw.githubusercontent.com/ahmetalpcinar/ahmetalpcinar/main/PNG/Images/imageBSIW3.png" alt="Ürün ve stok yönetimi" width="420"> <img src="https://raw.githubusercontent.com/ahmetalpcinar/ahmetalpcinar/main/PNG/Images/imageBSIW4.png" alt="Kurulum" width="420">
